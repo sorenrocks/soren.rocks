@@ -1,93 +1,26 @@
-<div id="container">
-  <h1>hi! i'm soren</h1>
-  <ul>
-    <li><a href="/bsky" target="_blank">bsky</a></li>
-    <li><a href="/github" target="_blank">github</a></li>
-    <li><a href="/twitter" target="_blank">twitter</a></li>
-    <li><a href="/refs" target="_blank">refsheet</a></li>
+---
+import SocialButton from './SocialButton.astro'
+
+const socials = {
+  bluesky: '/bsky',
+  discord: '/discord',
+  github: '/github',
+  telegram: '/telegram',
+  twitter: '/twitter',
+}
+---
+
+<div
+  class="text-zinc-200 flex flex-col justify-center items-center h-screen bg-gradient-to-br from-orange-600 to-yellow-500 select-none pb-5"
+>
+  <h1 class="text-6xl font-bold">hi! i'm soren</h1>
+  <ul class="flex flex-row gap-4 mt-2">
+    {
+      Object.entries(socials).map(([key, href]) => (
+        <li>
+          <SocialButton icon={key} href={href} />
+        </li>
+      ))
+    }
   </ul>
 </div>
-<style>
-  #container {
-    color: #dddddd;
-    font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
-
-    height: 100vh;
-    overflow: hidden;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    user-select: none;
-
-    background: linear-gradient(45deg, rgb(207, 41, 0) 0%, rgb(239, 231, 6) 100%);
-    background-size: 200% 200%;
-    -webkit-animation: Animation 5s ease infinite;
-    -moz-animation: Animation 5s ease infinite;
-    animation: Animation 5s ease infinite;
-  }
-
-  @-webkit-keyframes Animation {
-    0% {
-      background-position: 10% 0%;
-    }
-    50% {
-      background-position: 91% 100%;
-    }
-    100% {
-      background-position: 10% 0%;
-    }
-  }
-  @-moz-keyframes Animation {
-    0% {
-      background-position: 10% 0%;
-    }
-    50% {
-      background-position: 91% 100%;
-    }
-    100% {
-      background-position: 10% 0%;
-    }
-  }
-  @keyframes Animation {
-    0% {
-      background-position: 10% 0%;
-    }
-    50% {
-      background-position: 91% 100%;
-    }
-    100% {
-      background-position: 10% 0%;
-    }
-  }
-
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-  }
-
-  a {
-    text-decoration: none;
-    color: #dddddd;
-    text-shadow: 2px 2px rgba(0, 0, 0, 0.2);
-    font-size: 18pt;
-    padding: 0.2rem 0.5rem;
-  }
-
-  h1 {
-    font-size: 42pt;
-    margin: 0;
-    text-shadow: 4px 4px rgba(0, 0, 0, 0.2);
-  }
-
-  h2 {
-    font-size: 24pt;
-    margin: 0;
-    text-shadow: 3px 3px rgba(0, 0, 0, 0.2);
-  }
-</style>
