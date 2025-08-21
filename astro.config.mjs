@@ -11,7 +11,7 @@ export default defineConfig({
     '/discord': 'https://discord.com/users/525050108966993920',
     '/github': 'https://github.com/sorenrocks',
     '/telegram': 'https://t.me/sorenrocks',
-    '/twitter': 'https://twitter.com/sorenrocks',
+    '/twitter': 'https://x.com/sorenrocks',
 
     // games
     '/steam': 'https://steamcommunity.com/id/sorenrocks',
