@@ -19,9 +19,6 @@ export default defineConfig({
     '/bl': 'https://beatleader.com/u/76561198838652679',
     '/ss': 'https://scoresaber.com/u/76561198838652679',
     '/ssr': 'https://ssr.fascinated.cc/player/76561198838652679',
-
-    // other
-    '/refs': 'https://drive.google.com/drive/folders/1m2yGpN1UeGEGOsTOthRqPdLm1SSQaL1I',
   },
 
   vite: {
