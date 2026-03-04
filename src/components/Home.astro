@@ -42,7 +42,7 @@ const socials = {
       half.style.transform = 'translateY(100%)' // start hidden
       half.style.display = 'block' // make it visible after setting initial position
 
-      const socket = io('ws://45.76.66.114:9004')
+      const socket = io('https://kissws.soren.rocks')
 
       function updateHalf() {
         const { screenX, screenY, innerWidth, innerHeight } = window
