@@ -23,4 +23,55 @@ const socials = {
       ))
     }
   </ul>
+
+  <div class="absolute bottom-0 right-0 w-28 overflow-hidden">
+    <div id="half-soren" class="transition-transform duration-500 ease-in-out">
+      <img src="/half_soren.png" alt="soren's half?" class="rounded-tl-xl" />
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.8.1/socket.io.js"></script>
+    <script type="module">
+      let sorenX = 0
+      let sorenY = 0
+
+      let honeyX = 0
+      let honeyY = 0
+      let honeyTimer = 0
+
+      const half = document.getElementById('half-soren')
+      half.style.transform = 'translateY(100%)' // start hidden
+      half.style.display = 'block' // make it visible after setting initial position
+
+      const socket = io('ws://45.76.66.114:9004')
+
+      function updateHalf() {
+        const { screenX, screenY, innerWidth, innerHeight } = window
+
+        sorenX = screenX + innerWidth
+        sorenY = screenY + innerHeight
+
+        socket.emit('soren-call', { x: sorenX, y: sorenY })
+
+        const canSee = Math.abs(sorenX - honeyX) < 600 && Math.abs(sorenY - honeyY) < 50
+        const canHear = honeyTimer > 0
+        honeyTimer -= 1
+
+        if (canSee && canHear) {
+          half.style.transform = 'translateY(0%)' // kiss!
+        } else if (canHear) {
+          half.style.transform = 'translateY(35%)' // peeking
+        } else {
+          half.style.transform = 'translateY(100%)' // hidden
+        }
+      }
+
+      setInterval(updateHalf, 500)
+
+      socket.on('honey-call', data => {
+        honeyTimer = 3 // reset timer
+        honeyX = data.x
+        honeyY = data.y
+      })
+    </script>
+  </div>
 </div>
