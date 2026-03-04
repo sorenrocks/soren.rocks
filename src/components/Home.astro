@@ -40,11 +40,11 @@ const socials = {
 
       const half = document.getElementById('half-soren')
       half.style.transform = 'translateY(100%)' // start hidden
-      half.style.display = 'block' // make it visible after setting initial position
 
       const socket = io('https://kissws.soren.rocks')
 
       function updateHalf() {
+        half.style.display = 'block'
         const { screenX, screenY, innerWidth, innerHeight } = window
 
         sorenX = screenX + innerWidth
