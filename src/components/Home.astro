@@ -52,7 +52,7 @@ const socials = {
 
         if (socket.connected) socket.emit('soren-call', { x: sorenX, y: sorenY })
 
-        const canSee = Math.abs(sorenX - honeyX) < 100 && Math.abs(sorenY - honeyY) < 50
+        const canSee = Math.abs(sorenX - honeyX) < 40 && Math.abs(sorenY - honeyY) < 50
         const canHear = honeyTimer > 0
         honeyTimer -= 1
 
