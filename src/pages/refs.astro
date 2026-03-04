@@ -5,25 +5,27 @@ import '../styles/global.css'
 
 <title>soren's refsheet</title>
 <meta property="og:title" content="soren's refsheet" />
-<meta property="og:description" content="reference sheet for sorenrocks" />
+<meta
+  property="og:description"
+  content="reference sheet for sorenrocks (high-res download available through the link)"
+/>
 <meta property="og:url" content="https://soren.rocks/refs" />
-<meta property="og:image" content="https://soren.rocks/sorenrocks_ref_low.png" />
+<meta property="og:image" content="https://soren.rocks/sorenrocks_ref_low.webp" />
+<meta property="og:image:type" content="image/webp" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="800" />
 <meta name="og:site_name" content="soren.rocks" />
 <meta name="twitter:card" content="summary_large_image" />
 
 <Layout>
+  <link rel="preload" as="image" href="/sorenrocks_ref_low.webp" fetchpriority="high" />
   <div
     class="text-zinc-200 flex flex-col justify-center items-center h-screen bg-gradient-to-br from-orange-600 to-yellow-500"
   >
     <div class="w-5/6 lg:w-3/4 min-w-96 flex flex-col">
-      <img
-        src="/sorenrocks_ref.png"
-        alt="soren's reference sheet"
-        class="rounded-xl shadow-lg"
-        style="background-image: url('/sorenrocks_ref_low.png'); background-size: cover; background-position: center;"
-      />
+      <div class="bg-[url(/sorenrocks_ref_low.webp)] bg-cover bg-center rounded-xl shadow-lg aspect-3/2">
+        <img src="/sorenrocks_ref.png" alt="soren's reference sheet" class="rounded-xl shadow-lg" />
+      </div>
       <a
         href="/sorenrocks_ref.png"
         download="sorenrocks_ref.png"
